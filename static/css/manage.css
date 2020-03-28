@@ -1,0 +1,296 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background-color: #e5e5e5;
+}
+
+.nav-item {
+  color: #8a8888;
+}
+
+/* main 部分 */
+main {
+  flex-grow: 1;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  background-color: #f9f9f9;
+}
+
+/* 添加文字按钮 add-article-btn*/
+.add-article-btn {
+  position: absolute;
+  top: 15vh;
+  left: 15%;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  border: 1.5px solid black;
+  border-radius: 50%;
+}
+/* 适配 */
+@media(max-width: 1200px) {
+  .add-article-btn {
+    left: 10%;
+  }
+}
+
+@media(max-width: 800px) {
+  .add-article-btn {
+    left: 3.75%;
+  }
+}
+
+
+.add-article-btn::after, .add-article-btn::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 4px;
+  border-radius: 4px;
+  background-color: black;
+}
+
+.add-article-btn::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+/* article-container 部分 */
+.article-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* 适配 */
+@media(max-width: 1200px) {
+  .article-container {
+    width: 70%;
+  }
+}
+
+@media(max-width: 800px) {
+  .article-container {
+    width: 80%;
+  }
+}
+
+
+
+/* 文章盒子 */
+.article-box {
+  margin-top: 2rem;
+  background-color: white;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 0.125rem solid #86bc42;
+}
+
+/* 文章盒子间距 */
+.article-box>[class^="article"] {
+  margin: 0.25rem 0;
+}
+
+/* 文章title样式 */
+.article-box>.article-title {
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+/* 文字附带信息 */
+.article-att {
+  color: gray;
+  font-size: 0.95rem;
+}
+
+.article-att-author {
+  margin-right: 3vw;
+}
+
+.article-att-date {
+  font-style: italic;
+}
+
+
+
+/* 文章内容样式 */
+.article-box>p {
+  text-indent: 2rem;
+  margin: 0.375rem 0;
+}
+
+/* 文章操作  article-operation*/
+
+.article-operate-delete, .article-operate-edit{
+  float: right;
+  text-transform: capitalize;
+  padding: 0 1rem;
+  color: #035690;
+  cursor: pointer;
+}
+
+.article-operate-delete {
+  border-right: 1.5px solid #e8e8e8;
+}
+
+/* 分页导航栏 */
+.page-nav {
+  width: 70%;
+  margin: 2rem auto;
+  text-align: center;
+}
+.page-nav a {
+  text-decoration: none;
+  color: black;
+}
+
+/* 适配 */
+@media(max-width: 1200px) {
+  .page-nav {
+    width: 80%;
+  }
+}
+
+@media(max-width: 800px) {
+  .page-nav {
+    width: 90%;
+  }
+}
+
+[class^="page-item"] {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5vw;
+  cursor: pointer;
+}
+
+/* 中间按钮导航 */
+.page-item {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid black;
+}
+
+.page-item:hover {
+  color: #035690;
+  border-color: #035690;
+}
+
+/* 目标导航 按钮*/
+.target-item {
+  color: #035690;
+  border-color: #035690;
+  transform: scale(1.1);
+}
+
+/* 左右按钮 */
+.page-item-left, .page-item-right{
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+
+.page-item-left:hover, .page-item-right:hover {
+  color: #035690;
+}
+
+
+
+/* 弹窗的样式  bdbdbd*/
+.pop-up-window {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #bdbdbda1;
+}
+
+.window-add-article {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  width: 28rem;
+  padding: 0 3vw;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.window-add-article>h2 {
+  position: relative;
+  word-spacing: 0.5rem;
+  letter-spacing: 0.15rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.window-add-article>hr {
+  width: 8rem;
+  margin-top: -0.5rem;
+  color: gray;
+}
+
+
+/* 表单样式 */
+
+.window-add-article from {
+  width: 80%;
+}
+
+.window-add-article input, .window-add-article textarea {
+  display: block;
+  width: 100%;
+  border: 1px  solid black;
+  line-height: 1rem;
+  min-height: 2rem;
+  text-indent: 0.5rem;
+}
+
+.input-name {
+  text-transform: capitalize;
+}
+
+.input-box {
+  margin: 0.5rem 0;
+}
+
+
+/* 行为按钮 */
+.action-btn-box {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.action-btn-submit, .action-btn-cancel {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.5rem 1rem;
+  margin: 0 2vw;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.action-btn-submit {
+  background-color: #86bc42;
+}
+
+.action-btn-submit:active {
+  background-color: #94da3e;
+}
+
+
+.action-btn-cancel {
+  background-color: #bdbdbd;
+}
+
+.action-btn-cancel:hover {
+  background-color: red;
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manange</title>
+  <link rel="stylesheet" href="./../static/css/global.css">
+  <link rel="stylesheet" href="./../static/css/nav.css">
+  <link rel="stylesheet" href="./../static/css/manage.css">
+  <link rel="stylesheet" href="./../static/css/footer.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <!-- 左导航 -->
+      <ul class="nav-left">
+
+        <li>
+          <a class="nav-item" href=""><span>f</span>ront-end</a>
+          <ul class="nav-left-leval2">
+
+            <li><a href="./../index.html?c_id=3">html</a></li>
+
+            <li><a href="./../index.html?c_id=4">css</a></li>
+
+            <li><a href="./../index.html?c_id=5">javascript</a></li>
+
+          </ul>
+        </li>
+
+        <li>
+          <a class="nav-item" href=""><span>b</span>ack-end</a>
+          <ul class="nav-left-leval2">
+
+            <li><a href="./../index.html?c_id=6">php</a></li>
+
+            <li><a href="./../index.html?c_id=7">java</a></li>
+
+            <li><a href="./../index.html?c_id=8">node</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+      <!-- logo 首页 -->
+      <a class="logo-box" href="./../index.html">
+        <div class="logo"></div>
+      </a>
+      <!-- logo -->
+      <!-- 右导航 -->
+      <div class="nav-right">
+
+        <a title="进入后台" class="nav-item enter-back" href="./manage.html"><span>f</span>dsafdsasd</a>
+        <a class="nav-item out-login">Cancle</a>
+
+      </div>
+      <!-- 右导航 -->
+    </nav>
+  </header>
+
+  <main>
+    <!-- 添加按钮 -->
+    <div class="add-article-btn"></div>
+    <!-- 添加按钮 -->
+
+    <!-- 文章盒子 -->
+    <div class="article-container">
+
+      <div class="article-box">
+        <div class="article-title">java</div>
+        <div class="article-att">
+          <span class="article-att-author">By: homyit</span>
+          <span class="article-att-date">Mon Jan 20 2020</span></div>
+        <p>Lorem ipsum dolor </p>
+        <div class="article-operation clearfix">
+          <span class="article-operate-edit" data-article-id="1">edit</span>
+          <span class="article-operate-delete" data-article-id="1">delete</span>
+        </div>
+      </div>
+
+      <div class="article-box">
+        <div class="article-title">html</div>
+        <div class="article-att">
+          <span class="article-att-author">By: homyit</span>
+          <span class="article-att-date">Wed Mar 11 2020</span></div>
+        <p>Lorem ipsum dolor </p>
+        <div class="article-operation clearfix">
+          <span class="article-operate-edit" data-article-id="2">edit</span>
+          <span class="article-operate-delete" data-article-id="2">delete</span>
+        </div>
+      </div>
+
+      <div class="article-box">
+        <div class="article-title">css</div>
+        <div class="article-att">
+          <span class="article-att-author">By: homyit</span>
+          <span class="article-att-date">Mon Mar 07 2011</span></div>
+        <p>Lorem ipsum dolor sit </p>
+        <div class="article-operation clearfix">
+          <span class="article-operate-edit" data-article-id="3">edit</span>
+          <span class="article-operate-delete" data-article-id="3">delete</span>
+        </div>
+      </div>
+
+      <div class="article-box">
+        <div class="article-title">javascript</div>
+        <div class="article-att">
+          <span class="article-att-author">By: homyit</span>
+          <span class="article-att-date">Thu Feb 20 2020</span></div>
+        <p>Lorem ipsum dolor </p>
+        <div class="article-operation clearfix">
+          <span class="article-operate-edit" data-article-id="4">edit</span>
+          <span class="article-operate-delete" data-article-id="4">delete</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- 文章盒子 -->
+
+    <!-- 模板渲染 分页导航 -->
+    <ul class="page-nav">
+      <a href="./pages/manage.html?pId=1" class="page-item-left">&lt;</a>
+
+      <a href="./pages/manage.html?pId=1" class="page-item  target-item">1</a>
+
+      <a href="./pages/manage.html?pId=2" class="page-item ">2</a>
+
+      <a href="./pages/manage.html?pId=3" class="page-item ">3</a>
+
+      <a href="./pages/manage.html?pId=4" class="page-item ">4</a>
+
+      <a href="./pages/manage.html?pId=5" class="page-item ">5</a>
+
+      <a href="./pages/manage.html?pId=6" class="page-item ">6</a>
+
+      <a href="./pages/manage.html?pId=7" class="page-item ">7</a>
+
+      <a href="./pages/manage.html?pId=8" class="page-item ">8</a>
+
+      <a href="./pages/manage.html?pId=2" class="page-item-right">&gt;</a>
+    </ul>
+    <script id="art-template-page-nav" type="text/html">
+      <a href="{{  baseUrl + '?pId=' + lastPId }}" class="page-item-left">&lt;</a>
+      {{each pagesArr}}
+      <a href="{{  baseUrl + '?pId=' + $value }}"
+        class="{{ 'page-item ' + ($value === pId ? ' target-item' : '') }}">{{$value}}</a>
+      {{/each}}
+      <a href="{{  baseUrl + '?pId=' + nextPId }}" class="page-item-right">&gt;</a>
+    </script>
+    <!-- 模板渲染 分页导航 -->
+  </main>
+
+  <!-- 底部 -->
+  <footer>
+    @copyright Homyit Studio
+  </footer>
+  <!-- 底部 -->
+
+  <!-- 弹窗部分 -->
+  <div class="pop-up-window">
+    <div class="window-add-article">
+      <h2>add article</h2>
+      <hr>
+      <form action="">
+        <div class="input-box">
+          <span class="input-name">title</span>
+          <input type="text" name="title">
+        </div>
+        <div class="input-box">
+          <span class="input-name">tag</span>
+          <input type="text" name="tag">
+        </div>
+        <div class="input-box">
+          <span class="input-name">content</span>
+          <textarea name="content" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="action-btn-box">
+          <div class="action-btn-submit">submit</div>
+          <div class="action-btn-cancel">cancel</div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- 弹窗部分 -->
+</html>

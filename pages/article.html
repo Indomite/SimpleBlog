@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articel</title>
+  <link rel="stylesheet" href="./../static/css/global.css">
+  <link rel="stylesheet" href="./../static/css/nav.css">
+  <link rel="stylesheet" href="./../static/css/article.css">
+  <link rel="stylesheet" href="./../static/css/footer.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <!-- 左导航 -->
+      <ul class="nav-left">
+        <script id="nav-left" type="text/html">
+          {{each $NavData leval_1 index_1}}
+          <li>
+            <a class="nav-item" href=""><span>{{leval_1.name[0]}}</span>{{leval_1.name.slice(1)}}</a>
+            <ul class="nav-left-leval2">
+              {{each leval_1.children leval_2 index_2}}
+              <li><a href="{{'/index.html?c_id=' + leval_2['c_id']}}">{{leval_2.name}}</a></li>
+              {{/each}}
+            </ul>
+          </li>
+          {{/each}}
+        </script>
+      </ul>
+      <!-- logo 首页 -->
+      <a class="logo-box" href="/index.html">
+        <div class="logo"></div>
+      </a>
+      <!-- logo -->
+      <!-- 右导航 -->
+      <div class="nav-right">
+        <script id="nav-right" type="text/html">
+          {{if logined}}
+          <a title="进入后台" class="nav-item enter-back"
+            href="/pages/manage.html"><span>{{firstCharAt}}</span>{{otherName}}</a>
+          <a class="nav-item out-login">Cancle</a>
+          {{else}}
+          <a class="nav-item login" href="/pages/login.html?type=login"><span>L</span>ogin</a>
+          <a class="nav-item sign" href="/pages/login.html?type=sign"><span>S</span>ign</a>
+          {{/if}}
+        </script>
+      </div>
+      <!-- 右导航 -->
+    </nav>
+  </header>
+
+  <main class="article-box">
+    <script id="template-article-card" type="text/html">
+      <div class="article-card">
+        <div id="img-content">
+          <img src={{article.miniPictureUrl}} alt="">
+        </div>
+        <div class="article-message">
+          <div class="article-message-top">
+            <h3 class="article-category">
+              {{article.title}}
+            </h3>
+            <div class="article-publicTime">
+              --{{article.date}}
+            </div>
+            <p class="article-overview">
+              {{article.content}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </script>
+  </main>
+
+
+  <footer>
+    @copyright Homyit Studio
+  </footer>
+</body>
+<script src="./../static/lib/template-web.js"></script>
+<script src="./../static/lib/cookies.js"></script>
+<script src="./../static/js/loginedController.js"></script>
+<script src="./../static/js/myMock.js"></script>
+<script src="./../static/js/beautifyUrlSearch.js"></script>
+<script src="./../static/js/article.js"></script>
+</html>

@@ -1,0 +1,304 @@
+html {
+  font-size: calc(0.75vw + 8px);
+  font-family: "微软雅黑";
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+/* 背景 */
+.body-bac {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(./../images/city1.jpg);
+  /* 图片覆盖容器自适应 ， 尽量不改变原图比例展示*/
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a {
+  color: #1161ee;
+  text-decoration: none;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+.welcome p {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+  color: aliceblue;
+  letter-spacing: 5px;
+  text-shadow: 0 0 0.25rem rgba(255, 255, 255, 0.75), 0 0 0.5rem rgb(255, 255, 255, 0.375), 0 0 1rem rgb(255, 255, 255, 0.1875);
+}
+
+/* container 整个居中 */
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* 表单大小我一般直接用 rem处理 有一定的自适应能力 不会太小 */
+  width: 30rem;
+}
+
+/* .login-wrap */
+.login-wrap {
+  position: relative;
+  /* opacity会对整个容器进行透明 这里单独对背景透明就可 */
+  /* opacity: 0.8; */
+  min-height: 20rem;
+  text-align: center;
+  border-radius: 0.5rem;  
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0px 0.5rem 0px rgba(0, 0, 0, 0.5);
+}
+
+@media(max-width: 800px) {
+  .login-wrap {
+    min-height: 25rem;
+  }
+}
+
+/* 横线 */
+.login-wrap hr {
+  height: 2px;
+  margin: 0 auto;
+  color: gray;
+}
+
+/* 导航radio rember */
+#nav-to-login,
+#nav-to-sign,
+#rember-check {
+  display: none;
+}
+
+/* 导航标签 */
+.nav-to-login-agency,
+.nav-to-sign-agency {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #aaa;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin: 0 15%;
+  border-bottom: 0.15rem solid transparent;
+  cursor: pointer;
+}
+
+
+/* 控制导航标签动画 颜色 border */
+#nav-to-login:checked+.nav-to-login-agency,
+#nav-to-sign:checked+.nav-to-sign-agency {
+  color: black;
+  border-bottom-color: #1161ee;
+}
+
+
+
+/* form 盒子 */
+.form-box {
+  position: relative;
+  margin-top: 1rem;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* 表单样式 */
+.login-form,
+.sign-form {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: transform .3s linear, opacity .5s linear;
+}
+
+
+
+.form-box [class$="group"] {
+  margin: 1.5rem auto;
+}
+
+@media(max-width: 800px) {
+  .form-box [class$="group"] {
+    margin: 2.375rem auto;
+  }
+}
+
+/* 输入框 和 按钮 */
+.login-group .input,
+.login-group [class$="button"] {
+  width: 15rem;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
+  border: 1px solid rgb(110, 110, 110);
+  padding: 0.375rem;
+  border-radius: 0.25rem;
+  vertical-align: middle;
+}
+
+/* login-group  sign-group提交按钮 */
+.login-group [class$="button"],
+.sign-group [class$="button"] {
+  background-color: #1161ee;
+  color: white;
+  font-size: 1rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+
+/*login-group  输入框背景图片样式 */
+.login-group .input-att-img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 2rem;
+  height: 2rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login-group:nth-child(1) .input-att-img {
+  background-image: url(./../images/username.png);
+  background-size: 85%;
+  background-position: center;
+}
+
+.login-group:nth-child(2) .input-att-img {
+  background-image: url(./../images/password.png);
+}
+
+.login-forget-link {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 22.5%;
+}
+
+
+/* login-group rember 动画控制  */
+.login-group .rember-check-agency .icon {
+  position: relative;
+  display: inline-block;
+  vertical-align: -5%;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, .1);
+  background-color: #1161ee;
+}
+
+
+.rember-check-agency .icon::before,
+.rember-check-agency .icon::after {
+  position: absolute;
+  content: "";
+  height: 0.15rem;
+  background-color: white;
+}
+
+.rember-check-agency .icon::before {
+  width: 0.375rem;
+  left: 10%;
+  top: 40%;
+  transform-origin: 0% 50%;
+  transform: rotate(50deg) scale(0);
+}
+
+.rember-check-agency .icon::after {
+  width: 0.75rem;
+  left: 10%;
+  top: 40%;
+  transform: rotate(-40deg) scale(0);
+}
+
+/* rember-check 点击动画 */
+#rember-check:checked+.rember-check-agency .icon:before {
+  transform: rotate(50deg) scale(1);
+}
+
+#rember-check:checked+.rember-check-agency .icon:after {
+  transform: rotate(-40deg) scale(1);
+}
+
+/* sign-form */
+
+.sign-group {
+  /* width: 50%; */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sign-group:nth-child(1) {
+  padding-right: 5%;
+}
+
+.sign-group .input-att-img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1rem;
+  height: 1rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sign-group-box:nth-child(1) .sign-group:nth-child(1) .input-att-img {
+  background-image: url(./../images/username.png);
+}
+
+.sign-group-box:nth-child(1) .sign-group:nth-child(2) .input-att-img {
+  background-image: url(./../images/email.png);
+  background-size: 125%;
+  background-position: center;
+}
+
+.sign-group-box:nth-child(2) .sign-group:nth-child(1) .input-att-img {
+  background-image: url(./../images/password.png);
+  /* background-size: 125%; */
+  /* background-position: center; */
+}
+
+.sign-group-box:nth-child(2) .sign-group:nth-child(2) .input-att-img {
+  background-image: url(./../images/record.png);
+  /* background-size: 125%; */
+  /* background-position: center; */
+}
+
+.sign-group input {
+  width: 10rem;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
+  border: 1px solid rgb(110, 110, 110);
+  padding: 0.375rem;
+  border-radius: 0.25rem;
+  vertical-align: middle;
+}
+
+.sign-group .sign-button {
+  width: 15rem;
+}
+
+
+/* 表单旋转动画 */
+
+#nav-to-login:checked~.form-box .login-form, 
+#nav-to-sign:checked~.form-box .sign-form {
+  transform: rotate(0);
+  opacity: 1;
+}
+

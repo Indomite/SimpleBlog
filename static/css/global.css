@@ -1,0 +1,30 @@
+html {
+  font-size: calc(0.75vw + 8px);
+  font-family: "微软雅黑";
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+  display: block;
+  content: "";
+  clear: both;
+}
