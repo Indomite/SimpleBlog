@@ -1,2 +1,3 @@
-# Blog1.0
+# Blog
+
 The blog for Homyit in 2020
